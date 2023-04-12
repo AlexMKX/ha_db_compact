@@ -93,7 +93,7 @@ class ha_db_compact(hass.Hass):
           AND cleanup_dupes.FST != STATES.STATE_ID
           and states.old_state_id is not NULL;
         """)
-        cursor.execute ("materialized view orphaned_attributes;")
+        cursor.execute ("refresh materialized view orphaned_attributes;")
         prev_rows: int
         curr_rows = 0
         while True:

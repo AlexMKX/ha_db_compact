@@ -7,6 +7,7 @@
         <serverdata>
           <mappings>
             <mapping deploy="/ha_db_compact" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/ha_switch_auto_off" local="$PROJECT_DIR$/../ha_switch_auto_off" web="/" />
           </mappings>
           <excludedPaths>
             <excludedPath local="true" path="$PROJECT_DIR$/venv" />
