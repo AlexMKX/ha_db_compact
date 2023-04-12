@@ -1,0 +1,8 @@
+ha_db_compact:
+  class: ha_db_compact
+  module: ha_db_compact
+  config:
+    database: homeassistant
+    user: postgres_user
+    password: postgres_password
+    host: postgres_host
