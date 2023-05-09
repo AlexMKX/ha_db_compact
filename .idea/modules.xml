@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/ha_db_compact.iml" filepath="$PROJECT_DIR$/.idea/ha_db_compact.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../ha_switch_auto_off/.idea/ha_switch_auto_off.iml" filepath="$PROJECT_DIR$/../ha_switch_auto_off/.idea/ha_switch_auto_off.iml" />
     </modules>
   </component>
 </project>

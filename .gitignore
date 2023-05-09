@@ -1,2 +1,4 @@
 /app.yaml
 /venv/
+/ha_db_compact/app.yaml
+/appdaemon.yaml
