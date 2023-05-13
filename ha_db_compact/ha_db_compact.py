@@ -57,13 +57,18 @@ class ha_db_compact(hass.Hass):
                    "application_name": "HA DB Cleanup"})
             self.log("Connected to database")
             conn.set_isolation_level(psycopg2.extensions.ISOLATION_LEVEL_AUTOCOMMIT)
-            try:
-                self.do_cleanup(conn)
-            except Exception as e:
-                self.log(f'Error: {str(e)} probably there is no structure, creating it')
-                self.create_struct(conn)
-                self.log(f'Created structure, retrying cleanup')
-                self.do_cleanup(conn)
+            while True:
+                try:
+                    self.do_cleanup(conn)
+                    break
+                except psycopg2.errors.DeadlockDetected:
+                    self.log("Deadlock detected, retrying cleanup")
+                    self.do_cleanup(conn)
+                except Exception as e:
+                    self.log(f'Error: {str(e)} probably there is no structure, creating it')
+                    self.create_struct(conn)
+                    self.log(f'Created structure, retrying cleanup')
+                time.sleep(60)
             self.log("Cleanup complete")
         except Exception as e:
             self.log("Error: " + str(e))
